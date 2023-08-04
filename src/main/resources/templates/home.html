@@ -10,6 +10,9 @@
     <h2>Thymeleaf拡張ライブラリ</h2>
     <p>ユーザー名：<span sec:authentication="principal.user.name"></span></p>
     <p>メールアドレス：<span sec:authentication="principal.user.email"></span></p>
+    
+    <!-- ADMIN専用ページへのリンクを追加 sec:authorize属性を追加-->
+    <a href="/admin"　sec:authorize="hasAuthority('ADMIN')">管理者画面へ</a>
 
     <!-- ログアウト -->
     <form th:action="@{/logout}" method="post">
