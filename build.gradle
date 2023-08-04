@@ -23,9 +23,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
 	// Spring Securityを依存関係に追加
-	implemention 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	// Thymeleaf拡張ライブラリを依存関係に追加
-	implemention 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+
 }
 
 tasks.named('test') {
