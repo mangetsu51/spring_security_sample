@@ -33,12 +33,16 @@ public class LoginUser implements UserDetails{
 		return this.user.getEmail();
 	}
 	
+	
 	//以降は今回は利用しないが記述はしておく
 	
 	// ユーザーに付与された権限を返却する
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities(){
-		return AuthorityUtils.NO_AUTHORITIES;
+		if(this.user.getRole().equals("管理者")) {
+			return AuthorityUtils.createAuthorityList("ADMIN", "GENEARL");
+		}
+		return AuthorityUtils.createAuthorityList("GENEARL");
 	}
 	
 	// アカウントの有効期限の状態を判定する
@@ -64,4 +68,6 @@ public class LoginUser implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
+	
+	
 }
