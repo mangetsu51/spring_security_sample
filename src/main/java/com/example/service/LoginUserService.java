@@ -27,7 +27,7 @@ public class LoginUserService  implements UserDetailsService {
 		
 		// ユーザー情報が見つからない場合、例外を発生させる
 		if(user == null) {
-			throw new UsernameNotException("ユーザーが見つかりません");
+			throw new UsernameNotFoundException("ユーザーが見つかりません");
 			
 		}
 		
