@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		//認可の設定
 		http.authorizeRequests()
 				.antMatchers("/loginForm").permitAll() //loginFormは全ユーザーからのアクセスを許可、
-				.anyRequest().authenticated();  //許可した項目以外は、認証を認める
+				.anyRequest().authenticated();  //許可した項目以外は、認証を求める
 		
 		//ログイン処理
 		http.formLogin()
@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.usernameParameter("email")  // ログインページのメールアドレス
 			.passwordParameter("password")  // ログインページのパスワード
 			.defaultSuccessUrl("/home",true)  // ログイン成功後のパス
-			.failureUrl("/loginform?error");  // ログイン失敗時のパス
+			.failureUrl("/loginForm?error");  // ログイン失敗時のパス
 		
 		//ログアウト処理
 		http.logout()
